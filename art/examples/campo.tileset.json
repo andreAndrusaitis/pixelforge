@@ -1,0 +1,10 @@
+{
+  "name": "campo",
+  "tile": 16,
+  "terrenos": {
+    "terra": {"cor": "#a46422", "textura": "pontos", "modo": "cheio"},
+    "grama": {"cor": "#38b764", "borda": "#257179", "textura": "grama", "modo": "blob47"},
+    "agua": {"cor": "#3b5dc9", "borda": "#29366f", "textura": "ondas", "modo": "blob16", "recuo": 1},
+    "muro": {"cor": "#8b9bb4", "borda": "#333c57", "textura": "tijolo", "modo": "blob47", "espessura": 2}
+  }
+}

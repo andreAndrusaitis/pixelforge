@@ -1,0 +1,250 @@
+# Configuração do PixelForge.
+# Os comandos procuram este arquivo a partir da pasta atual, subindo até a raiz.
+# Opções passadas na linha de comando sempre têm prioridade.
+
+[output]
+dir = "out"                  # cada arte vai para out/<nome>/
+formats = ["png", "svg"]     # png | jpg | webp | gif | svg
+scales = [1, 16]             # 1 = tamanho nativo; 16 = 32x32 vira 512x512
+preview = true               # gera <nome>_preview.png com grade (para inspeção)
+jpg_background = "#ffffff"   # JPG não tem transparência
+jpg_quality = 95
+
+[paths]
+art = "art"                  # onde ficam as definições (.json / .py)
+palettes = "palettes"        # paletas do usuário (*.hex); sobrepõem as embutidas
+
+[new]
+size = 32                    # tamanho padrão de `pixelforge new`
+palette = "pico8"
+
+[convert]
+preset = "default"           # preset usado quando --preset não é informado
+
+[cena]                       # motor de cena (comandos cena, quadro, storyboard)
+resolucao = "hd"             # preset abaixo, "LxA" ou [L, A]; o roteiro e --resolucao têm prioridade
+escala = 6                   # ampliação inteira na exportação (hd × 6 = 1920x1080)
+fps = 12
+formatos = ["gif", "mp4"]    # gif | webp | mp4 (mp4 precisa de: pip install -e .[video])
+
+[cena.presets]               # resoluções lógicas nomeadas
+gba = [240, 160]
+snes = [256, 224]
+hd = [320, 180]
+hd2 = [480, 270]
+hd3 = [640, 360]
+
+# ---------------------------------------------------------------------------
+# Presets de conversão (imagem de referência → pixel art).
+# Campos:
+#   size            lado (int) ou [largura, altura]
+#   palette         int = N cores adaptativas | string = nome de paleta
+#   dither          none | floyd | bayer2 | bayer4
+#   dither_strength 0.0–1.0 (só bayer)
+#   fit             contain | cover | stretch
+#   contrast / saturation / sharpness   1.0 = sem alteração
+#   resample        box | nearest | bilinear | lanczos | detail (cor dominante; preserva traços)
+#   detail          0–2: peso de tons escuros nos blocos com borda (resample detail)
+#   edge_spread     0.1–0.4: quanto contraste um bloco precisa para ser tratado como borda
+#   smooth          none | kuwahara (achata áreas e preserva bordas)
+#   smooth_radius   0 = automático
+#   lines           0–1: traço vindo das bordas da foto (escurece o lado escuro)
+#   line_threshold  0–1: quão forte a borda precisa ser
+#   crop            [x, y, w, h] em frações (0–1) ou pixels
+#   mask            imagem de máscara (branco = manter); gere com `pixelforge mask`
+#   focus           [x, y, w, h] em frações do quadro final; ganha mais cores
+#   focus_weight    peso da região de foco na escolha da paleta
+#   background      "" = transparente | "#rrggbb"
+#   alpha_threshold 0–255; abaixo vira transparente
+#   remove_bg       "" | "auto" | "#rrggbb"
+#   bg_tolerance    0–255
+#   trim            corta margens transparentes da fonte
+#   cleanup         passadas de remoção de pixels órfãos
+#   merge           funde tons quase iguais (ΔE OKLab; ~0.05). 0 desliga
+#   defringe        passadas removendo franja do fundo na borda da silhueta
+#   outline         "" | "auto" | "#rrggbb"
+# ---------------------------------------------------------------------------
+
+[presets.default]
+size = 32
+palette = 16
+dither = "none"
+fit = "contain"
+contrast = 1.1
+saturation = 1.15
+sharpness = 1.0
+resample = "box"
+cleanup = 1
+outline = ""
+
+[presets.sprite]             # personagem/objeto com fundo removido e contorno
+size = 32
+palette = 12
+remove_bg = "auto"
+contrast = 1.2
+saturation = 1.2
+cleanup = 1
+outline = "auto"
+
+[presets.icon]               # ícone pequeno e legível
+size = 16
+palette = 8
+remove_bg = "auto"
+contrast = 1.3
+saturation = 1.3
+cleanup = 2
+outline = "auto"
+
+[presets.portrait]           # retrato/ilustração com mais detalhe
+size = 64
+palette = 24
+fit = "cover"
+contrast = 1.1
+saturation = 1.1
+cleanup = 1
+
+[presets.photo]              # fiel à foto: retratos e pessoas (use com --mask)
+size = 64
+palette = 32
+fit = "contain"
+smooth = "kuwahara"
+resample = "detail"
+detail = 0.5
+edge_spread = 0.25
+lines = 0.0
+contrast = 1.05
+saturation = 1.1
+cleanup = 1
+merge = 0.06
+defringe = 2
+outline = ""
+
+[presets.pico8]
+size = 64
+palette = "pico8"
+dither = "bayer4"
+dither_strength = 0.35
+contrast = 1.2
+saturation = 1.3
+
+[presets.gameboy]
+size = 64
+palette = "gameboy"
+dither = "bayer4"
+dither_strength = 0.5
+contrast = 1.3
+saturation = 0.0
+
+[presets.c64]
+size = 64
+palette = "c64"
+dither = "bayer2"
+dither_strength = 0.4
+contrast = 1.2
+
+[presets.endesga]
+size = 48
+palette = "endesga32"
+dither = "none"
+contrast = 1.15
+saturation = 1.2
+cleanup = 1
+
+# ---------------------------------------------------------------------------
+# Som (python -m pixelforge som ...). Saída em out/som/.
+[som]
+taxa = 44100                   # amostras/s dos efeitos, músicas e mixagens
+modelos = ""                   # pasta dos pesos de IA; "" = $PIXELFORGE_MODELS ou ~/.cache/pixelforge
+voz = "pf_dora"                # Kokoro: pf_dora (feminina), pm_alex, pm_santa (masculinas)
+ambiente_modelo = "audioldm2"  # audioldm2 (aberto) | stable-audio (restrito: exige licença + login no HF)
+
+# ---------------------------------------------------------------------------
+# IA de imagem local (python -m pixelforge ia ...). Saída em out/ia/<nome>/.
+# A IA só faz o rascunho; a pixelização (grade, paleta, limpeza) e a revisão
+# entregam a arte. Extra: pip install -e .[imagem-ia] (veja o README).
+[ia]
+modelos = "models"                 # pasta dos pesos (relativa a este arquivo); $PIXELFORGE_MODELS tem prioridade
+modelo = "dreamshaper-xl-lightning"
+lora = "pixel-art-xl"              # "" desliga
+lora_peso = 1.1                    # < 1 a IA tende a foto/pintura; 1,1 dá pixel de verdade
+passos = 0                         # 0 = padrão do modelo (Lightning: 6)
+guia = 3.0                         # CFG; 0 = padrão do modelo (Lightning: 2). 3 = luz mais dramática
+precisao = "fp8"                   # fp8 (UNet em 2,6 GB de VRAM) | fp16
+offload = "modelo"                 # modelo | sequencial (menos VRAM, mais lento) | nenhum
+preset = "retrato"
+forca = 0.55                       # imagem → imagem
+ref_peso = 0.55                    # referência de personagem (IP-Adapter)
+ref_tipo = "plus"                  # plus (corpo e roupa) | face (rosto)
+estilo_peso = 0.6                  # imagens de estilo: as `refs` do preset, só nas camadas de estilo da UNet
+estilo_lora = "models/pixelforge-estilo/pxfrg-estilo.safetensors"  # LoRA de `ia treinar`; "" desliga
+estilo_lora_peso = 0.8
+gatilho = "pxfrg style"            # palavra do LoRA de estilo (vai na frente do prompt)
+
+# Presets de estilo, montados das referências em refs/estilo-referencias/ e das receitas de
+# docs/estilo/estilo-pixelforge.md (prompt) e dos erros de amador (negativo):
+# pixel "pintado", paleta contida, luz dramática, rosto discreto (sem olho de anime),
+# perspectiva atmosférica nos cenários.
+#   estilo:      tipo (retrato | personagem | cenario | cena, para `estilo comparar`),
+#                refs [n, ...] (imagens de estilo do índice docs/estilo/referencias.json), estilo_peso
+#   geração:     prompt ("pixel art" + descrição + resto; o CLIP lê só 77 tokens: seja breve), negativo, resolucao [L, A] (múltiplos de 8)
+#   pixelização: tamanho [L, A] | "auto" (= grade do pseudo-pixel da IA), cores, paleta, metodo (moda | mediana), grade,
+#                fundo ("" | auto | #rrggbb), fundo_tolerancia, contorno ("" | seletivo | auto | #rrggbb),
+#                limpeza, fundir, contraste, saturacao
+[ia.presets.retrato]
+estilo_peso = 0.5
+refs = [4, 10, 22]
+tipo = "retrato"
+prompt = "pixel art, bust portrait, painted pixel clusters, hard edges, side light, 1px rim light, cool violet shadows, warm highlights, muted palette, one accent color, subtle face, tiny eyes, dark background"
+negativo = "anime eyes, big eyes, sparkling eyes, chibi, cartoon, pillow shading, smooth gradient, dithering, black outline everywhere, oversaturated, noisy pixels, blurry, 3d render, photo, photorealistic, text, watermark, frame, deformed"
+resolucao = [768, 1024]
+tamanho = "auto"                   # = grade detectada no rascunho (~resolução ÷ 8–10)
+cores = 28                         # refs de personagem: 20–48 cores efetivas, 4–6 tons por rampa
+metodo = "moda"
+limpeza = 2
+fundir = 0.03
+saturacao = 0.9
+
+[ia.presets.personagem-corpo]
+estilo_peso = 0.5
+refs = [21, 11, 1]
+tipo = "personagem"
+prompt = "pixel art, full body shot, entire figure, feet visible, relaxed pose, weight on one leg, painted pixel clusters, side light, 1px rim light, cool shadows, muted palette, subtle face, plain flat white background"
+negativo = "anime eyes, big eyes, sparkling eyes, chibi, cartoon, pillow shading, smooth gradient, dithering, black outline everywhere, oversaturated, noisy pixels, blurry, 3d render, photo, photorealistic, text, watermark, frame, deformed, cropped, close-up, t-pose, symmetrical pose, multiple characters"
+resolucao = [832, 1216]
+tamanho = "auto"                   # = grade detectada no rascunho (~resolução ÷ 8–10)
+cores = 28                         # refs de personagem: 20–48 cores efetivas, 4–6 tons por rampa
+metodo = "moda"
+fundo = "auto"
+fundo_tolerancia = 18               # baixa: roupa clara não pode sair junto com o fundo
+ref_peso = 0.4                     # referência mais fraca: o retrato não pode puxar o enquadramento
+contorno = ""
+limpeza = 2
+fundir = 0.03
+saturacao = 0.9
+
+[ia.presets.cenario]
+estilo_peso = 0.6
+refs = [27, 23, 13]
+tipo = "cenario"
+prompt = "pixel art landscape, wide shot, sky in flat color bands, atmospheric perspective, haze between layers, dark silhouette framing, broken horizontal reflections, one dominant palette, one accent, no people"
+negativo = "anime, cartoon, smooth gradient sky, dithering, noisy pixels, mirror reflection, oversaturated, blurry, 3d render, photo, photorealistic, text, watermark, frame, people, tilted horizon"
+resolucao = [1344, 768]
+tamanho = "auto"                   # = grade detectada no rascunho (~resolução ÷ 8–10)
+cores = 40                         # refs de cenário: 25–75 cores efetivas
+metodo = "moda"
+limpeza = 2
+fundir = 0.03
+saturacao = 0.9
+
+[ia.presets.cena-noturna]
+estilo_peso = 0.6
+refs = [30, 20, 14]
+tipo = "cena"
+prompt = "pixel art night scene, moonlight, deep blue violet palette, flat color bands, warm window lights with flat halo, atmospheric perspective, dark silhouette framing, dramatic contrast"
+negativo = "anime, cartoon, smooth gradient sky, dithering, noisy pixels, mirror reflection, oversaturated, blurry, 3d render, photo, photorealistic, text, watermark, frame, people, tilted horizon, daylight"
+resolucao = [1344, 768]
+tamanho = "auto"                   # = grade detectada no rascunho (~resolução ÷ 8–10)
+cores = 32
+metodo = "moda"
+limpeza = 2
+fundir = 0.05

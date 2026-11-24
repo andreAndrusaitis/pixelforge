@@ -1,0 +1,66 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pixelforge"
+version = "0.1.0"
+description = "Pixel art gerada por código: descrição ou imagem de referência → PNG/JPG/WebP/GIF/SVG."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { file = "LICENSE" }
+dependencies = ["pillow>=10", "numpy>=1.26"]
+
+[project.optional-dependencies]
+# MP4 das cenas (traz o binário do FFmpeg; sem ele, cenas saem em GIF/WebP)
+video = ["imageio-ffmpeg>=0.5"]
+# servidor MCP local (python -m pixelforge mcp); SDK oficial, 1.x (FastMCP) ou 2.x (MCPServer)
+mcp = ["mcp>=1.2"]
+# Som por IA local. PyTorch com CUDA vem do índice do PyTorch (veja o README, seção Som):
+#   pip install torch torchaudio --index-url https://download.pytorch.org/whl/cu128
+audio-ia = [
+    "torch>=2.6",
+    "kokoro>=0.9.4",
+    "soundfile>=0.13",
+    "diffusers>=0.35",
+    "transformers>=4.51",
+    "accelerate>=1.0",
+    "uv>=0.8",
+]
+# Rascunho por IA de imagem local (SDXL + LoRA de pixel art). PyTorch com CUDA antes:
+#   pip install torch --index-url https://download.pytorch.org/whl/cu128
+imagem-ia = [
+    "torch>=2.6",
+    "diffusers>=0.35",
+    "transformers>=4.51",
+    "accelerate>=1.0",
+    "peft>=0.15",
+    "safetensors>=0.4",
+    "huggingface_hub>=0.30",
+    "torchsde>=0.2.6",
+    "bitsandbytes>=0.45",  # AdamW 8-bit do `ia treinar`
+]
+
+# Vídeo/animação por IA local (Wan 2.2 TI2V-5B em GGUF; PyTorch com CUDA como no audio-ia):
+#   pip install torch --index-url https://download.pytorch.org/whl/cu128
+#   pip install -e .[video,video-ia] && python -m pixelforge video-ia baixar
+video-ia = [
+    "torch>=2.6",
+    "diffusers>=0.35",
+    "transformers>=4.51",
+    "accelerate>=1.0",
+    "gguf>=0.10",
+    "bitsandbytes>=0.45",
+    "sentencepiece>=0.2",
+    "ftfy>=6",
+    "huggingface_hub>=0.34",
+]
+
+[project.scripts]
+pixelforge = "pixelforge.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["pixelforge*"]
+
+[tool.setuptools.package-data]
+pixelforge = ["palettes/*.hex", "studio/static/*", "studio/static/js/*"]

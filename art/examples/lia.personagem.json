@@ -1,0 +1,31 @@
+{
+  "tipo": "personagem",
+  "name": "lia",
+  "tamanho": [32, 32],
+  "retrato": 48,
+  "idade": "adulto",
+  "cores": {
+    "pele": "#e8b796", "cabelo": "#6b3a2a", "olhos": "#3b7d4f",
+    "roupa": "#3b5dc9", "roupa2": "#f4f4f4", "calca": "#333c57",
+    "sapato": "#4a2f2a", "acessorio": "#ffcd75", "boca": "#b55058"
+  },
+  "contorno": "selout",
+  "luz": "cima-esquerda",
+  "camadas": {
+    "cabelo": {"estilo": "rabo", "franja": "lado", "volume": 1},
+    "roupa": {"estilo": "casaco", "mangas": "longas"},
+    "pernas": {"estilo": "calca"},
+    "acessorios": ["cachecol"],
+    "marcas": []
+  },
+  "expressoes": ["neutro", "feliz", "bravo", "triste", "surpreso"],
+  "andar": 4,
+  "paletas": {
+    "uniforme_vermelho": {"roupa": "#b13e53", "roupa2": "#ffcd75", "acessorio": "#f4f4f4"}
+  },
+  "variantes": {
+    "cicatriz": {"camadas": {"marcas": ["cicatriz"]}},
+    "idosa": {"idade": "idoso"},
+    "verao": {"camadas": {"roupa": {"estilo": "vestido", "mangas": "curtas"}, "acessorios": []}}
+  }
+}

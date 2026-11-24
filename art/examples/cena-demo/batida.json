@@ -1,0 +1,11 @@
+{
+  "_sobre": "Três batidas na porta de madeira.",
+  "camadas": [
+    {"onda": "ruido", "freq": 600, "passa_baixa": 700, "decaimento": 0.07, "curva": 2, "volume": 0.9, "atraso": 0.0},
+    {"onda": "seno", "freq": 120, "deslize": -1, "decaimento": 0.09, "curva": 1.5, "volume": 0.6, "atraso": 0.0},
+    {"onda": "ruido", "freq": 600, "passa_baixa": 700, "decaimento": 0.07, "curva": 2, "volume": 0.9, "atraso": 0.24},
+    {"onda": "seno", "freq": 120, "deslize": -1, "decaimento": 0.09, "curva": 1.5, "volume": 0.6, "atraso": 0.24},
+    {"onda": "ruido", "freq": 600, "passa_baixa": 700, "decaimento": 0.07, "curva": 2, "volume": 0.9, "atraso": 0.48},
+    {"onda": "seno", "freq": 120, "deslize": -1, "decaimento": 0.09, "curva": 1.5, "volume": 0.6, "atraso": 0.48}
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "_sobre": "Demonstração do motor de cena: cartela de título, céu com estrelas e narração em legenda, tilt até o vale, o viajante atravessa o campo com a câmera seguindo com folga, close no retrato e no rosto durante as falas, e ele bate na porta. Som: tema chiptune, grilos e vento em loop, passos, batidas e falas (voz por IA com [audio-ia]; sem ela, bipes de máquina de escrever). Efeitos: vagalumes, luz da janela e vinheta.",
+  "name": "cena-demo",
+  "resolucao": "hd",
+  "fps": 12,
+  "cenario": "cenario",
+  "fundo": "#181425",
+  "atores": {
+    "viajante": { "sprite": "viajante", "pos": [-24, 224], "olhar": "direita", "nome": "Viajante", "voz": "pm_alex", "tom": 330 }
+  },
+  "efeitos": [
+    { "tipo": "vinheta", "intensidade": 0.45 },
+    { "tipo": "luz", "pos": [475, 186], "raio": 22, "intensidade": 0.45, "piscar": 0.5 }
+  ],
+  "transicoes": { "entrada": "fade", "saida": { "tipo": "fade", "dur": 1.5 } },
+  "audio": {
+    "trilha": { "musica": "tema.json", "volume": 0.55 },
+    "ambiente": [
+      { "efeito": "grilos.json", "volume": 0.8 },
+      { "efeito": "vento.json", "volume": 0.5 }
+    ],
+    "falas": { "modo": "auto", "narrador": "pf_dora", "bip": 0.3 },
+    "abafar": 0.35
+  },
+  "planos": [
+    { "titulo": { "texto": "Capítulo 1 — O vale", "subtitulo": "a chegada do viajante" } },
+    {
+      "dur": 3, "transicao": "fade", "camera": { "pos": [0, 0] },
+      "legenda": { "texto": "Ao cair da noite, um viajante desceu ao vale.", "narrar": true, "inicio": 0.3, "dur": 2.6 }
+    },
+    { "dur": 3, "camera": { "para": [0, 60], "curva": "suave" } },
+    {
+      "dur": 10,
+      "camera": { "seguir": "viajante", "folga": 40, "pos": [0, 60] },
+      "acoes": [
+        { "ator": "viajante", "ate": [300, 221], "vel": 48, "som": { "efeito": "passo", "repetir": 0.33, "volume": 0.45, "variar": 0.15 } },
+        { "ator": "viajante", "inicio": 6.75, "ate": [436, 210], "vel": 48, "som": { "efeito": "passo", "repetir": 0.33, "volume": 0.45, "variar": 0.15 } }
+      ],
+      "efeitos": [{ "tipo": "particulas", "estilo": "vagalumes", "quantidade": 16 }]
+    },
+    {
+      "dialogo": [
+        { "ator": "viajante", "retrato": "retrato_viajante", "close": "retrato",
+          "texto": "Enfim, a cabana do velho Tomé. A janela ainda está acesa… será que ele me espera?" },
+        { "ator": "viajante", "close": "ator", "posicao": "cima",
+          "texto": "Melhor bater logo — a noite está esfriando." }
+      ],
+      "efeitos": [{ "tipo": "particulas", "estilo": "vagalumes", "quantidade": 16 }]
+    },
+    {
+      "dur": 3,
+      "sons": [{ "efeito": "batida.json", "inicio": 0.5, "pan": 0.3, "volume": 0.55 }],
+      "efeitos": [{ "tipo": "particulas", "estilo": "vagalumes", "quantidade": 16 }]
+    }
+  ]
+}

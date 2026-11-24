@@ -1,0 +1,17 @@
+{
+  "name": "vila",
+  "tileset": "campo.tileset.json",
+  "base": "terra",
+  "legenda": {".": "terra", "g": "grama", "~": "agua", "#": "muro"},
+  "grade": [
+    "gggggg....######",
+    "gggggg....#....#",
+    "gg~~gg....#....#",
+    "g~~~~g.........#",
+    "gg~~gg....######",
+    "gggg............",
+    "..gg....gggg....",
+    "........g..g....",
+    "........gggg...."
+  ]
+}

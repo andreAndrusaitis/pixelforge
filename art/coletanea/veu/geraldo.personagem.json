@@ -1,0 +1,68 @@
+{
+  "tipo": "personagem",
+  "name": "geraldo",
+  "_fonte": "coletanea/universos/veu/biblia/personagens/geraldo.md (Aparência; Na página do L1). Tom de pele e cor da camisa: a ficha não define (neutro provisório, a confirmar com o autor).",
+  "tamanho": [
+    40,
+    48
+  ],
+  "retrato": 48,
+  "idade": "idoso",
+  "proporcoes": {
+    "altura": 45,
+    "cabeca": 15,
+    "largura_cabeca": 14,
+    "tronco": 15,
+    "ombros": 18
+  },
+  "cores": {
+    "pele": "#c48a64",
+    "cabelo": "#e6e3dc",
+    "olhos": "#3a2418",
+    "roupa": "#c9d3dc",
+    "roupa2": "#eef1f4",
+    "calca": "#3e5577",
+    "sapato": "#2e211b",
+    "chapeu": "#6b4e37",
+    "acessorio": "#6b4e37",
+    "boca": "#8e4a42"
+  },
+  "contorno": "selout",
+  "luz": "cima-esquerda",
+  "camadas": {
+    "cabelo": {
+      "estilo": "curto",
+      "franja": "nenhuma",
+      "volume": -0.4
+    },
+    "roupa": {
+      "estilo": "camisa",
+      "mangas": "curtas"
+    },
+    "pernas": {
+      "estilo": "calca"
+    },
+    "acessorios": [
+      "chapeu"
+    ],
+    "marcas": [
+      "rugas"
+    ],
+    "barba": "nenhuma"
+  },
+  "expressoes": [
+    "neutro",
+    "feliz",
+    "bravo",
+    "triste",
+    "surpreso"
+  ],
+  "andar": 4,
+  "variantes": {
+    "sem_chapeu": {
+      "camadas": {
+        "acessorios": []
+      }
+    }
+  }
+}

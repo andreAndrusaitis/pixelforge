@@ -1,0 +1,58 @@
+{
+  "arquivo": "2.png",
+  "tamanho_original": [
+    474,
+    769
+  ],
+  "tamanho_nativo": [
+    79,
+    128
+  ],
+  "grade": {
+    "escala": 6.0,
+    "escala_x": 6.0,
+    "escala_y": 6.0,
+    "offset": [
+      0,
+      0
+    ],
+    "confianca": 0.0,
+    "metodo": "corridas"
+  },
+  "mascara": "cena",
+  "paleta": {
+    "cores_efetivas": 24,
+    "cores_total": 58,
+    "croma_media": 0.062,
+    "destaque": null,
+    "rampas_medidas": 2,
+    "variacao_media_graus": 70.2,
+    "tons_por_rampa": 3.0
+  },
+  "valor": {
+    "media": 0.457,
+    "desvio": 0.105,
+    "contraste": 0.302,
+    "niveis": 8
+  },
+  "clusters": {
+    "tamanho_medio": 7.39,
+    "tamanho_mediano_ponderado": 523.0,
+    "orfaos": 0.1014,
+    "dithering": 0.0034,
+    "densidade_detalhe": 0.36
+  },
+  "luz": {
+    "angulo_graus": 90.0,
+    "forca": 0.638,
+    "de_onde": "cima"
+  },
+  "composicao": {
+    "ponto_focal": [
+      0.551,
+      0.597
+    ],
+    "dist_tercos": 0.135,
+    "espaco_negativo": 0.637
+  }
+}

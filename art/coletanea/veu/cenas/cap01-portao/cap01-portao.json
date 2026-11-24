@@ -1,0 +1,86 @@
+{
+  "_sobre": "Véu, L1, cap 01 (aprovado): Seu Geraldo chega ao portão de Martim no fim da tarde, depois do temporal. Falas tiradas do manuscrito.",
+  "name": "cap01-portao",
+  "resolucao": "hd3",
+  "escala": 3,
+  "fps": 12,
+  "cenario": "cenario",
+  "fundo": "#2b3a67",
+  "atores": {
+    "martim":  { "sprite": "coletanea/veu/martim", "pos": [1054, 280], "olhar": "direita", "nome": "Martim" },
+    "geraldo": { "sprite": "coletanea/veu/geraldo", "pos": [262, 296], "olhar": "direita", "nome": "Seu Geraldo", "visivel": false },
+    "geraldo_sem": { "sprite": "coletanea/veu/geraldo_sem_chapeu", "pos": [1110, 296], "olhar": "esquerda", "nome": "Seu Geraldo", "visivel": false },
+    "neta":    { "sprite": "coletanea/veu/neta-neide", "pos": [150, 300], "olhar": "direita", "nome": "" },
+    "bolacha": { "sprite": "bolacha", "pos": [800, 280], "olhar": "esquerda", "nome": "" }
+  },
+  "efeitos": [
+    { "tipo": "tinta", "modo": "por-do-sol", "intensidade": 0.25 },
+    { "tipo": "vinheta", "intensidade": 0.35 }
+  ],
+  "transicoes": { "entrada": { "tipo": "fade", "dur": 1.2 }, "saida": { "tipo": "fade", "dur": 2 } },
+  "planos": [
+    {
+      "_": "A padaria acesa; a neta da Dona Neide sobe com o saco de pão; um homem enorme vira a esquina.",
+      "dur": 6,
+      "camera": { "pos": [0, 0] },
+      "efeitos": [{ "tipo": "luz", "pos": [90, 230], "raio": 70, "intensidade": 0.35, "piscar": 0.1 }],
+      "acoes": [
+        { "ator": "neta", "ate": [560, 300], "vel": 40 },
+        { "ator": "geraldo", "inicio": 2, "aparecer": true, "fade": 0.5 },
+        { "ator": "geraldo", "inicio": 2.2, "ate": [600, 296], "vel": 55 }
+      ]
+    },
+    {
+      "_": "O Bolacha se joga contra o portão e late; o homem só olha; o Bolacha senta e bate o rabo.",
+      "dur": 7.6,
+      "camera": { "seguir": "geraldo" },
+      "acoes": [
+        { "ator": "geraldo", "pos": [640, 296] },
+        { "ator": "geraldo", "ate": [1110, 296], "vel": 62 },
+        { "ator": "neta", "pos": [760, 300] },
+        { "ator": "neta", "ate": [985, 300], "vel": 36 },
+        { "ator": "bolacha", "inicio": 1.2, "anim": "latir" },
+        { "ator": "bolacha", "inicio": 3.0, "anim": "sentado" },
+        { "ator": "bolacha", "inicio": 4.0, "olhar": "direita" }
+      ]
+    },
+    {
+      "_": "Antes de pisar na calçada da casa, ele tira o chapéu.",
+      "camera": { "pos": [640, 0] },
+      "acoes": [
+        { "ator": "geraldo", "olhar": "esquerda" },
+        { "ator": "geraldo", "inicio": 0.6, "sumir": true },
+        { "ator": "geraldo_sem", "inicio": 0.6, "aparecer": true }
+      ],
+      "dialogo": [
+        { "ator": "geraldo_sem", "retrato": "coletanea/veu/geraldo_sem_chapeu_retrato", "inicio": 1.2, "texto": "Com licença." }
+      ]
+    },
+    {
+      "_": "A menina arregala o olho, diz 'Nó!' e sai correndo de chinelo.",
+      "dur": 3,
+      "acoes": [
+        { "ator": "neta", "inicio": 1.0, "ate": [560, 300], "vel": 150 },
+        { "ator": "neta", "inicio": 2.6, "sumir": true }
+      ],
+      "dialogo": [ { "ator": "neta", "nome": "", "texto": "Nó!", "fim": 1.2 } ]
+    },
+    {
+      "dialogo": [
+        { "ator": "geraldo_sem", "retrato": "coletanea/veu/geraldo_sem_chapeu_retrato", "texto": "Boa tarde, meu filho. A dona da casa está?" },
+        { "ator": "martim", "retrato": "coletanea/veu/martim_retrato", "texto": "Quem quer saber?" },
+        { "ator": "geraldo_sem", "retrato": "coletanea/veu/geraldo_sem_chapeu_retrato", "texto": "Geraldo. Seu Geraldo, se preferir. Tenho uma carta pra pôr na mão dela. É do colégio." },
+        { "ator": "martim", "retrato": "coletanea/veu/martim_retrato", "texto": "Que colégio?" },
+        { "ator": "geraldo_sem", "retrato": "coletanea/veu/geraldo_sem_chapeu_retrato", "texto": "Um colégio lá de Minas. Está tudo no papel." }
+      ]
+    },
+    {
+      "dialogo": [
+        { "ator": "martim", "retrato": "coletanea/veu/martim_retrato", "texto": "Olha, moço, sem ofensa. Mas um cara de dois metros trazendo carta em mão, de colégio que eu nunca ouvi falar, com envelope sem nome? Esse é o começo de todo golpe que tem no YouTube." },
+        { "ator": "martim", "retrato": "coletanea/veu/martim_retrato", "texto": "Primeiro vem a carta. Depois vem o boleto." },
+        { "ator": "geraldo_sem", "retrato": "coletanea/veu/geraldo_sem_chapeu_retrato", "texto": "Não tem boleto." },
+        { "ator": "martim", "retrato": "coletanea/veu/martim_retrato", "texto": "É o que todo golpista fala do boleto.", "fim": 2.5 }
+      ]
+    }
+  ]
+}

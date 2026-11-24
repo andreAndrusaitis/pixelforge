@@ -1,0 +1,29 @@
+{
+  "_sobre": "Cena de referência dos testes golden: título, legenda, câmera com folga e enquadramentos, diálogo com close no retrato e no ator, efeito e fade. Regravar: python -m pixelforge golden tests/golden/golden.json --regravar",
+  "name": "golden",
+  "resolucao": [160, 90],
+  "fps": 12,
+  "cenario": "fundo",
+  "fundo": "#181425",
+  "atores": {
+    "lia": { "sprite": "lia", "pos": [40, 80], "nome": "Lia" }
+  },
+  "transicoes": { "entrada": "fade", "saida": "fade" },
+  "planos": [
+    { "titulo": { "texto": "Capítulo 7 — A vila", "subtitulo": "o retorno de Lia" }, "dur": 2 },
+    {
+      "dur": 4,
+      "camera": { "seguir": "lia", "folga": 24, "pos": [0, 0] },
+      "acoes": [{ "ator": "lia", "ate": [230, 80], "vel": 50, "som": { "efeito": "passo", "repetir": 0.3 } }],
+      "legenda": { "texto": "Três invernos depois, Lia voltou à vila.", "narrar": true }
+    },
+    { "dur": 1.5, "camera": { "enquadrar": "medio", "em": "lia" }, "efeitos": [{ "tipo": "chuva" }] },
+    {
+      "camera": { "enquadrar": "geral", "em": "lia" },
+      "dialogo": [
+        { "ator": "lia", "retrato": "lia_retrato", "close": "retrato", "texto": "A porta ainda está aberta." },
+        { "ator": "lia", "close": "ator", "texto": "Alguém me espera?" }
+      ]
+    }
+  ]
+}

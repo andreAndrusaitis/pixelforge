@@ -1,0 +1,71 @@
+{
+  "descricao": "small skinny 12 year old boy, short dark coily buzz cut hair, thick eyebrows, gray hoodie, worn sneakers",
+  "preset": "personagem-corpo",
+  "pedido": {
+    "prompt": "pixel art, small skinny 12 year old boy, short dark coily buzz cut hair, thick eyebrows, gray hoodie, worn sneakers, full body shot, entire figure, feet visible, chunky pixels, hard edges, warm side light, cool shadows, muted palette, subtle face, plain flat white background",
+    "negative": "anime, manga, big eyes, anime eyes, chibi, cartoon, cel shading, blurry, 3d render, photo, photorealistic, text, watermark, signature, frame, border, cropped, close-up, multiple characters, deformed, extra limbs, flag, patch, logo",
+    "width": 832,
+    "height": 1216,
+    "seed": 1100,
+    "steps": 6,
+    "guidance": 3.0,
+    "model": "dreamshaper-xl-lightning",
+    "lora": "pixel-art-xl",
+    "lora_weight": 1.1,
+    "init": "",
+    "strength": 0.55,
+    "ref": "out\\ia\\martim-retrato-1\\martim-retrato-1_bruta.png",
+    "ref_weight": 0.3,
+    "ref_kind": "plus",
+    "offload": "modelo",
+    "precision": "fp8"
+  },
+  "tempo": {
+    "carregar_modelo_s": 100.9,
+    "geracao_s": 76.9,
+    "pixelizacao_s": 6.42
+  },
+  "ambiente": {
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "vram_pico_gb": 3.46,
+    "torch": "2.11.0+cu128",
+    "diffusers": "0.41.0",
+    "repositorios": {
+      "dreamshaper-xl-lightning": "Lykon/dreamshaper-xl-lightning",
+      "vae-fp16": "madebyollin/sdxl-vae-fp16-fix",
+      "pixel-art-xl": "nerijs/pixel-art-xl",
+      "ip-adapter": "h94/IP-Adapter"
+    }
+  },
+  "nome": "martim-corpo",
+  "pixelizacao": {
+    "size": null,
+    "colors": 16,
+    "palette": "",
+    "method": "mode",
+    "grid": "auto",
+    "grid_tolerance": 0.1,
+    "remove_bg": "auto",
+    "bg_tolerance": 18,
+    "trim": false,
+    "contrast": 1.0,
+    "saturation": 0.9,
+    "cleanup": 2,
+    "merge": 0.05,
+    "outline": "",
+    "background": "",
+    "alpha_threshold": 128
+  },
+  "grade": {
+    "scale": 8.0,
+    "offset_x": 7.5,
+    "offset_y": 7.5,
+    "confidence": 4.446
+  },
+  "tamanho_final": [
+    104,
+    152
+  ],
+  "cores_finais": 16,
+  "escolhido_de": "martim-corpo-1"
+}

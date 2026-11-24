@@ -1,0 +1,6 @@
+{
+  "_sobre": "Quadros de referência (golden) comparados pixel a pixel por tests/test_golden.py. Depois de uma mudança visual intencional: python -m pixelforge golden tests/golden/golden.json --regravar",
+  "cenas": [
+    { "roteiro": "cena/golden.json", "quadros": [0.25, 1.0, 3.0, 5.5, 6.5, 8.0, 10.5, 11.5] }
+  ]
+}

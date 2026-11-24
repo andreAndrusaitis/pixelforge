@@ -1,0 +1,23 @@
+{
+  "name": "arbusto",
+  "size": [16, 16],
+  "palette": { ".": "transparent", "g": "#38b764", "m": "#a46422", "f": "#b13e53" },
+  "pixels": [
+    "................",
+    "................",
+    ".....gggggg.....",
+    "...gggggggggg...",
+    "..gggggggggggg..",
+    ".gggggggfggggggg",
+    ".gggggggggggggg.",
+    ".ggggfggggggggg.",
+    ".gggggggggggfgg.",
+    ".gggggggggggggg.",
+    "..gggggggggggg..",
+    "...gggggggggg...",
+    ".....gggggg.....",
+    ".......mm.......",
+    ".......mm.......",
+    "......mmmm......"
+  ]
+}

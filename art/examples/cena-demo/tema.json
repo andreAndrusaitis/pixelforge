@@ -1,0 +1,39 @@
+{
+  "name": "tema_vale",
+  "_sobre": "Tema noturno e calmo da cena-demo (lá menor, 76 bpm): arpejo suave, baixo em triângulo e melodia esparsa.",
+  "bpm": 76,
+  "canais": [
+    {
+      "nome": "melodia",
+      "onda": "triangulo",
+      "volume": 0.22,
+      "dur": 1,
+      "vibrato": 0.2,
+      "vibrato_vel": 4.5,
+      "ataque": 0.04,
+      "decaimento": 0.3,
+      "sustentacao": 0.5,
+      "manter": 0.3,
+      "soltura": 0.4,
+      "notas": "E5:2 C5 D5 | E5:3 . | G5:2 F5 E5 | D5:3 . | C5:2 B4 A4 | B4:2 G4:2 | A4:4 | . . . ."
+    },
+    {
+      "nome": "arpejo",
+      "onda": "quadrada",
+      "duty": 0.125,
+      "volume": 0.07,
+      "dur": 0.5,
+      "decaimento": 0.25,
+      "sustentacao": 0.2,
+      "soltura": 0.1,
+      "notas": "A3 C4 E4 C4 A3 C4 E4 C4 | F3 A3 C4 A3 F3 A3 C4 A3 | C4 E4 G4 E4 C4 E4 G4 E4 | G3 B3 D4 B3 G3 B3 D4 B3 | A3 C4 E4 C4 A3 C4 E4 C4 | E3 G#3 B3 G#3 E3 G#3 B3 G#3 | A3 C4 E4 C4 A3 C4 E4 C4 | A3 C4 E4 C4 A3 C4 E4 C4"
+    },
+    {
+      "nome": "baixo",
+      "onda": "triangulo",
+      "volume": 0.3,
+      "dur": 2,
+      "notas": "A2 A2 | F2 F2 | C3 C3 | G2 G2 | A2 A2 | E2 E2 | A2 A2 | A2 A2"
+    }
+  ]
+}

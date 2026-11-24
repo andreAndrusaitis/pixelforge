@@ -1,0 +1,7 @@
+{
+  "_sobre": "Vento baixo e contínuo (ruído com passa-baixa), em loop na cena-demo.",
+  "camadas": [
+    {"onda": "ruido", "freq": 800, "passa_baixa": 380, "ataque": 1.0, "decaimento": 0.5, "sustentacao": 0.8,
+     "manter": 4.0, "soltura": 1.0, "volume": 0.35}
+  ]
+}

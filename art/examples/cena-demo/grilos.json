@@ -1,0 +1,11 @@
+{
+  "_sobre": "Ambiente da cena-demo: três cri-cris curtos e agudos e uma pausa (o motor repete em loop).",
+  "camadas": [
+    {"onda": "quadrada", "freq": 4300, "duty": 0.3, "decaimento": 0.035, "curva": 1.5, "volume": 0.07, "atraso": 0.0},
+    {"onda": "quadrada", "freq": 4300, "duty": 0.3, "decaimento": 0.035, "curva": 1.5, "volume": 0.07, "atraso": 0.07},
+    {"onda": "quadrada", "freq": 4300, "duty": 0.3, "decaimento": 0.035, "curva": 1.5, "volume": 0.07, "atraso": 0.14},
+    {"onda": "quadrada", "freq": 4100, "duty": 0.3, "decaimento": 0.035, "curva": 1.5, "volume": 0.05, "atraso": 0.95},
+    {"onda": "quadrada", "freq": 4100, "duty": 0.3, "decaimento": 0.035, "curva": 1.5, "volume": 0.05, "atraso": 1.02},
+    {"onda": "seno", "freq": 50, "decaimento": 0.01, "volume": 0.0, "atraso": 1.9}
+  ]
+}

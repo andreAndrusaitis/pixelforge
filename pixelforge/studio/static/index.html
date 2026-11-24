@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Estúdio PixelForge</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 4' shape-rendering='crispEdges'%3E%3Crect width='4' height='4' fill='%2316161d'/%3E%3Crect x='1' y='1' width='2' height='2' fill='%23ff4f8b'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header>
+    <h1>PixelForge <span>estúdio</span></h1>
+    <nav id="abas">
+      <a href="#galeria" data-aba="galeria">Galeria</a>
+      <a href="#ver" data-aba="ver">Visualizador</a>
+      <a href="#retocar" data-aba="retocar">Retoque</a>
+      <a href="#comparar" data-aba="comparar">Comparar</a>
+      <a href="#cena" data-aba="cena">Cena</a>
+      <a href="#pedidos" data-aba="pedidos">Pedidos ao Claude</a>
+    </nav>
+    <div id="aviso" role="status" hidden></div>
+  </header>
+
+  <main>
+    <!-- Galeria -->
+    <section id="galeria" class="aba">
+      <div class="barra">
+        <input id="g-busca" type="search" placeholder="buscar nome, tag, projeto…">
+        <select id="g-tipo"><option value="">todos os tipos</option></select>
+        <select id="g-projeto"><option value="">todos os projetos</option></select>
+        <button id="g-indexar" title="varre art/ e gera miniaturas">Reindexar</button>
+      </div>
+      <div id="g-tags" class="chips"></div>
+      <div id="g-lista" class="galeria"></div>
+    </section>
+
+    <!-- Visualizador -->
+    <section id="ver" class="aba" hidden>
+      <div class="vazio" data-vazio>Escolha uma arte na <a href="#galeria">galeria</a>.</div>
+      <div class="painel" data-cheio hidden>
+        <div class="palco"><canvas id="v-canvas"></canvas></div>
+        <aside class="lateral">
+          <h2 id="v-titulo"></h2>
+          <p id="v-info" class="sutil"></p>
+          <p id="v-aviso" class="alerta" hidden></p>
+          <label>Zoom <input id="v-zoom" type="range" min="1" max="32" step="1"> <output id="v-zoom-n"></output></label>
+          <label><input id="v-grade" type="checkbox" checked> grade</label>
+          <label><input id="v-xadrez" type="checkbox" checked> fundo xadrez</label>
+          <fieldset>
+            <legend>Animação</legend>
+            <select id="v-anim"></select>
+            <div class="linha">
+              <button id="v-tocar">▶ tocar</button>
+              <button id="v-ant" title="quadro anterior">◀</button>
+              <button id="v-prox" title="próximo quadro">▶|</button>
+              <span id="v-quadro" class="sutil"></span>
+            </div>
+            <label>fps <input id="v-fps" type="number" min="1" max="60" value="8"></label>
+          </fieldset>
+          <fieldset>
+            <legend>Paleta ao vivo</legend>
+            <select id="v-paleta"><option value="">original</option></select>
+            <div id="v-cores" class="cores"></div>
+            <p class="sutil">Clique numa cor para trocá-la (só visualização; para gravar use o retoque).</p>
+          </fieldset>
+          <div class="linha">
+            <button id="v-retocar">Retocar</button>
+            <button id="v-pedido">Pedido ao Claude</button>
+            <button id="v-comparar">Comparar</button>
+            <button id="v-render">Renderizar</button>
+          </div>
+          <div id="v-versoes" class="versoes"></div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Editor de retoque -->
+    <section id="retocar" class="aba" hidden>
+      <div class="vazio" data-vazio>Escolha uma arte na <a href="#galeria">galeria</a> e clique em “Retocar”.</div>
+      <div class="painel" data-cheio hidden>
+        <div class="palco"><canvas id="e-canvas" class="editavel"></canvas></div>
+        <aside class="lateral">
+          <h2 id="e-titulo"></h2>
+          <p id="e-info" class="sutil"></p>
+          <p id="e-aviso" class="alerta" hidden></p>
+          <div class="ferramentas" id="e-ferramentas">
+            <button data-ferr="lapis" title="lápis (B)">✏️ lápis</button>
+            <button data-ferr="borracha" title="borracha (E)">⌫ borracha</button>
+            <button data-ferr="conta" title="conta-gotas (I)">💧 conta-gotas</button>
+            <button data-ferr="balde" title="balde (G)">🪣 balde</button>
+          </div>
+          <div class="linha">
+            <button id="e-desfazer" title="Ctrl+Z">↶ desfazer</button>
+            <button id="e-refazer" title="Ctrl+Y">↷ refazer</button>
+          </div>
+          <label>Zoom <input id="e-zoom" type="range" min="1" max="40" step="1"> <output id="e-zoom-n"></output></label>
+          <label><input id="e-grade" type="checkbox" checked> grade</label>
+          <label>Quadro <select id="e-quadro"></select></label>
+          <fieldset>
+            <legend>Cores da spec</legend>
+            <div id="e-cores" class="cores grandes"></div>
+            <div class="linha">
+              <input id="e-nova-cor" type="color" value="#ff004d">
+              <button id="e-add-cor">+ nova cor</button>
+              <button id="e-mudar-cor" title="troca a cor da chave selecionada (todos os pixels dela)">mudar cor da chave</button>
+            </div>
+          </fieldset>
+          <p id="e-pos" class="sutil">—</p>
+          <div class="linha">
+            <button id="e-salvar" class="primario">Salvar na spec</button>
+            <button id="e-versao">Salvar como nova versão</button>
+          </div>
+          <p id="e-estado" class="sutil"></p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Comparador -->
+    <section id="comparar" class="aba" hidden>
+      <div class="barra">
+        <label>Antes <select id="c-a"></select></label>
+        <label>Depois <select id="c-b"></select></label>
+        <select id="c-modo">
+          <option value="lado">lado a lado</option>
+          <option value="cortina">cortina</option>
+          <option value="piscar">alternar</option>
+        </select>
+        <label>Zoom <input id="c-zoom" type="range" min="1" max="16" value="6"></label>
+        <button id="c-foto">Comparar com a foto de referência</button>
+      </div>
+      <div id="c-palco" class="comparador"></div>
+      <div id="c-foto-res" class="foto-res"></div>
+    </section>
+
+    <!-- Cena -->
+    <section id="cena" class="aba" hidden>
+      <div class="barra">
+        <select id="s-lista"></select>
+        <span id="s-motor" class="sutil"></span>
+      </div>
+      <div class="vazio" id="s-vazio" hidden></div>
+      <div id="s-conteudo" hidden>
+        <div class="cena-topo">
+          <div class="cena-video" id="s-video"></div>
+          <div class="cena-quadro">
+            <img id="s-quadro-img" alt="quadro renderizado pelo motor">
+            <p id="s-quadro-info" class="sutil"></p>
+          </div>
+        </div>
+        <div class="linha-tempo">
+          <div id="s-planos" class="planos"></div>
+          <input id="s-scrub" type="range" min="0" value="0" step="1">
+          <div class="linha">
+            <span id="s-tempo">0,00 s</span>
+            <button id="s-tocar">▶ tocar</button>
+            <button id="s-exato" title="renderiza o quadro exato com o motor de cena">quadro exato</button>
+            <button id="s-pedido">Pedido sobre este quadro</button>
+          </div>
+        </div>
+        <h3>Storyboard</h3>
+        <img id="s-storyboard" class="storyboard" alt="storyboard">
+      </div>
+    </section>
+
+    <!-- Pedidos -->
+    <section id="pedidos" class="aba" hidden>
+      <div class="painel">
+        <div class="palco">
+          <div class="vazio" id="p-vazio">Abra uma arte (Visualizador → “Pedido ao Claude”) ou um quadro de cena para marcar.</div>
+          <canvas id="p-canvas" class="editavel" hidden></canvas>
+        </div>
+        <aside class="lateral">
+          <h2 id="p-titulo">Novo pedido</h2>
+          <div class="ferramentas">
+            <button data-marca="ponto" class="ativo">● ponto</button>
+            <button data-marca="retangulo">▭ retângulo</button>
+            <button id="p-limpar">limpar marcas</button>
+          </div>
+          <ol id="p-marcas" class="marcas"></ol>
+          <label for="p-texto">O que mudar?</label>
+          <textarea id="p-texto" rows="6" placeholder="Ex.: 1 — o olho esquerdo está alto demais; 2 — trocar a cor da capa por vinho."></textarea>
+          <button id="p-enviar" class="primario">Gravar pedido em pedidos/</button>
+          <p id="p-estado" class="sutil"></p>
+        </aside>
+      </div>
+      <h3>Pedidos gravados</h3>
+      <div id="p-lista" class="pedidos"></div>
+    </section>
+  </main>
+
+  <script type="module" src="/static/js/app.js"></script>
+</body>
+</html>

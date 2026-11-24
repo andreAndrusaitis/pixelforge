@@ -1,0 +1,58 @@
+{
+  "arquivo": "26.webp",
+  "tamanho_original": [
+    736,
+    1308
+  ],
+  "tamanho_nativo": [
+    123,
+    218
+  ],
+  "grade": {
+    "escala": 6.0,
+    "escala_x": 6.0,
+    "escala_y": 6.0,
+    "offset": [
+      0,
+      0
+    ],
+    "confianca": 0.0,
+    "metodo": "corridas"
+  },
+  "mascara": "cena",
+  "paleta": {
+    "cores_efetivas": 36,
+    "cores_total": 48,
+    "croma_media": 0.075,
+    "destaque": null,
+    "rampas_medidas": 2,
+    "variacao_media_graus": 18.2,
+    "tons_por_rampa": 9.0
+  },
+  "valor": {
+    "media": 0.551,
+    "desvio": 0.22,
+    "contraste": 0.657,
+    "niveis": 16
+  },
+  "clusters": {
+    "tamanho_medio": 4.95,
+    "tamanho_mediano_ponderado": 212.0,
+    "orfaos": 0.1454,
+    "dithering": 0.0152,
+    "densidade_detalhe": 0.619
+  },
+  "luz": {
+    "angulo_graus": 95.2,
+    "forca": 0.584,
+    "de_onde": "cima"
+  },
+  "composicao": {
+    "ponto_focal": [
+      0.402,
+      0.511
+    ],
+    "dist_tercos": 0.17,
+    "espaco_negativo": 0.343
+  }
+}

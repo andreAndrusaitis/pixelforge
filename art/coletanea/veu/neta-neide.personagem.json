@@ -1,0 +1,26 @@
+{
+  "tipo": "personagem",
+  "name": "neta-neide",
+  "_fonte": "coletanea/.../manuscrito/cap-01.md: neta da Dona Neide, miúda, mais cabelo que corpo, preso num elástico cor-de-rosa; chinelo. Pele e roupa não definidas (neutro).",
+  "tamanho": [32, 32],
+  "retrato": 48,
+  "idade": "crianca",
+  "proporcoes": { "altura": 22 },
+  "cores": {
+    "pele": "#8f5b3c", "cabelo": "#1f1614", "olhos": "#2a1a12",
+    "roupa": "#f2c14e", "roupa2": "#fff3d6", "calca": "#4f6a9a",
+    "sapato": "#e86a92", "acessorio": "#ff7fb0", "boca": "#7a3b35"
+  },
+  "contorno": "selout",
+  "luz": "cima-esquerda",
+  "camadas": {
+    "cabelo": { "estilo": "coque", "franja": "nenhuma", "volume": 2 },
+    "roupa": { "estilo": "camisa", "mangas": "curtas" },
+    "pernas": { "estilo": "short" },
+    "acessorios": [],
+    "marcas": [],
+    "barba": "nenhuma"
+  },
+  "expressoes": ["surpreso", "neutro"],
+  "andar": 4
+}

@@ -1,0 +1,70 @@
+{
+  "descricao": "heavyset 64 year old brazilian man, clean-shaven, short white hair, pressed button-up shirt, calm serious face",
+  "preset": "retrato",
+  "pedido": {
+    "prompt": "pixel art, heavyset 64 year old brazilian man, clean-shaven, short white hair, pressed button-up shirt, calm serious face, bust portrait, chunky pixels, hard edges, chiaroscuro, warm side light, cool blue shadows, muted palette, subtle face, small eyes, dark navy background",
+    "negative": "anime, manga, big eyes, anime eyes, sparkling eyes, chibi, cartoon, cel shading, blurry, smooth gradient, 3d render, photo, photograph, photorealistic, realistic skin texture, film grain, text, watermark, signature, frame, border, deformed, mustache, beard",
+    "width": 768,
+    "height": 1024,
+    "seed": 602,
+    "steps": 6,
+    "guidance": 3.0,
+    "model": "dreamshaper-xl-lightning",
+    "lora": "pixel-art-xl",
+    "lora_weight": 1.1,
+    "init": "",
+    "strength": 0.55,
+    "ref": "",
+    "ref_weight": 0.55,
+    "ref_kind": "plus",
+    "offload": "modelo",
+    "precision": "fp8"
+  },
+  "tempo": {
+    "carregar_modelo_s": 59.7,
+    "geracao_s": 46.3,
+    "pixelizacao_s": 3.4
+  },
+  "ambiente": {
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "vram_pico_gb": 2.92,
+    "torch": "2.11.0+cu128",
+    "diffusers": "0.41.0",
+    "repositorios": {
+      "dreamshaper-xl-lightning": "Lykon/dreamshaper-xl-lightning",
+      "vae-fp16": "madebyollin/sdxl-vae-fp16-fix",
+      "pixel-art-xl": "nerijs/pixel-art-xl"
+    }
+  },
+  "nome": "geraldo-retrato",
+  "pixelizacao": {
+    "size": null,
+    "colors": 16,
+    "palette": "",
+    "method": "mode",
+    "grid": "auto",
+    "grid_tolerance": 0.1,
+    "remove_bg": "",
+    "bg_tolerance": 40,
+    "trim": false,
+    "contrast": 1.0,
+    "saturation": 0.9,
+    "cleanup": 2,
+    "merge": 0.05,
+    "outline": "",
+    "background": "",
+    "alpha_threshold": 128
+  },
+  "grade": {
+    "scale": 8.0,
+    "offset_x": 7.5,
+    "offset_y": 7.5,
+    "confidence": 3.921
+  },
+  "tamanho_final": [
+    96,
+    128
+  ],
+  "cores_finais": 16,
+  "escolhido_de": "geraldo-retrato-3"
+}

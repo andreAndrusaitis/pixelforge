@@ -1,0 +1,75 @@
+{
+  "arquivo": "21.png",
+  "tamanho_original": [
+    576,
+    1024
+  ],
+  "tamanho_nativo": [
+    72,
+    128
+  ],
+  "grade": {
+    "escala": 8.0,
+    "escala_x": 8.0,
+    "escala_y": 8.0,
+    "offset": [
+      0.0,
+      0.0
+    ],
+    "confianca": 9.16
+  },
+  "mascara": "fundo-liso",
+  "paleta": {
+    "cores_efetivas": 26,
+    "cores_total": 59,
+    "croma_media": 0.05,
+    "destaque": {
+      "cor": "#ec5d11",
+      "area": 0.005
+    },
+    "rampas_medidas": 3,
+    "variacao_media_graus": 67.7,
+    "tons_por_rampa": 6.5
+  },
+  "valor": {
+    "media": 0.372,
+    "desvio": 0.216,
+    "contraste": 0.71,
+    "figura_x_fundo": 0.479,
+    "niveis": 16
+  },
+  "clusters": {
+    "tamanho_medio": 2.59,
+    "tamanho_mediano_ponderado": 5.0,
+    "orfaos": 0.2485,
+    "dithering": 0.0019,
+    "densidade_detalhe": 0.921
+  },
+  "contorno": {
+    "escuro": 0.591,
+    "colorido": 0.0,
+    "ausente": 0.409
+  },
+  "luz_de_borda": {
+    "fracao": 0.008,
+    "cor": "#dc6d35"
+  },
+  "luz": {
+    "angulo_graus": 77.3,
+    "forca": 0.388,
+    "de_onde": "cima"
+  },
+  "composicao": {
+    "ponto_focal": [
+      0.507,
+      0.565
+    ],
+    "dist_tercos": 0.189,
+    "espaco_negativo": 0.585,
+    "ocupacao": 0.532
+  },
+  "figura": {
+    "altura_px": 114,
+    "largura_px": 39
+  }
+}

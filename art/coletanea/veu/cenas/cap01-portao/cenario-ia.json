@@ -1,0 +1,13 @@
+{
+  "_sobre": "Rua da avó em Goiânia (cap 01) com o céu e as poças animados por IA local (Wan 2.2 → pixelização com a paleta travada da própria camada). Sem o extra [video-ia], as camadas ficam paradas.",
+  "name": "rua-da-avo-ia",
+  "size": [1280, 360],
+  "camadas": [
+    { "arte": "ceu", "parallax": 0.1,
+      "ia": { "movimento": "evening sky after a storm, soft pink clouds drifting slowly to the right, static camera", "dur": 4, "fps": 8 } },
+    { "arte": "lajes", "parallax": 0.35, "pos": [0, 120], "repetir": "x" },
+    { "arte": "rua",
+      "ia": { "movimento": "rain puddles on the asphalt shimmering, gentle ripples and reflections trembling, everything else still, static camera", "dur": 3, "fps": 8, "regiao": [[0, 300, 1280, 60]] } },
+    { "arte": "portao", "frente": true }
+  ]
+}

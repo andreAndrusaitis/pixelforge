@@ -1,0 +1,52 @@
+{
+  "tipo": "personagem",
+  "name": "martim",
+  "_fonte": "coletanea/universos/veu/biblia/personagens/martim-rocha.md (Aparência, L1–L2). Tom de pele e olhos: a ficha não define (neutro provisório, a confirmar com o autor).",
+  "tamanho": [
+    32,
+    32
+  ],
+  "retrato": 48,
+  "idade": "crianca",
+  "proporcoes": {
+    "altura": 28
+  },
+  "cores": {
+    "pele": "#b47a52",
+    "cabelo": "#2a1d1a",
+    "olhos": "#3a2418",
+    "roupa": "#8b93a1",
+    "roupa2": "#e7e9ec",
+    "calca": "#3a4466",
+    "sapato": "#d9d4c7",
+    "acessorio": "#5a6170",
+    "boca": "#8e4a42"
+  },
+  "contorno": "selout",
+  "luz": "cima-esquerda",
+  "camadas": {
+    "cabelo": {
+      "estilo": "curto",
+      "franja": "nenhuma",
+      "volume": 0.4
+    },
+    "roupa": {
+      "estilo": "casaco",
+      "mangas": "longas"
+    },
+    "pernas": {
+      "estilo": "calca"
+    },
+    "acessorios": [],
+    "marcas": [],
+    "barba": "nenhuma"
+  },
+  "expressoes": [
+    "neutro",
+    "feliz",
+    "bravo",
+    "triste",
+    "surpreso"
+  ],
+  "andar": 4
+}

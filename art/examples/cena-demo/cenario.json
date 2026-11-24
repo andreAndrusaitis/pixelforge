@@ -1,0 +1,12 @@
+{
+  "_sobre": "Vale ao entardecer. Mundo 640x240: o céu sobra no alto para a câmera descer (tilt).",
+  "name": "vale",
+  "size": [640, 240],
+  "camadas": [
+    { "arte": "ceu",             "parallax": 0.1 },
+    { "arte": "montanhas_longe", "parallax": 0.3,  "pos": [0, 18], "repetir": "x" },
+    { "arte": "montanhas_perto", "parallax": 0.55, "pos": [0, 33], "repetir": "x" },
+    { "arte": "chao",            "parallax": 1.0,  "pos": [0, 60] },
+    { "arte": "frente",          "parallax": 1.3,  "pos": [0, 240], "repetir": "x", "frente": true }
+  ]
+}

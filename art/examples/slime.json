@@ -1,0 +1,51 @@
+{
+  "name": "slime",
+  "size": [16, 16],
+  "fps": 4,
+  "palette": {
+    ".": "transparent",
+    "k": "#1a1c2c",
+    "d": "#257179",
+    "g": "#38b764",
+    "l": "#a7f070",
+    "w": "#f4f4f4"
+  },
+  "frames": [
+    [
+      "................",
+      "................",
+      "................",
+      "................",
+      "................",
+      "......kkkk......",
+      "....kkllggkk....",
+      "...klllgggggk...",
+      "..klwlggggggdk..",
+      "..klllgggggggdk.",
+      ".kglkwggggkwggdk",
+      ".kggkkgggkkkgddk",
+      ".kgggggggggggddk",
+      ".kddgggggggdddk.",
+      "..kkddddddddkk..",
+      "....kkkkkkkk...."
+    ],
+    [
+      "................",
+      "................",
+      "................",
+      "................",
+      "................",
+      "................",
+      "................",
+      ".....kkkkkk.....",
+      "...kkllggggkk...",
+      "..klwlggggggdk..",
+      ".klllgggggggddk.",
+      "kglkwggggkwgggdk",
+      "kggkkgggkkkggddk",
+      "kgggggggggggdddk",
+      ".kkddddddddddkk.",
+      "...kkkkkkkkkk..."
+    ]
+  ]
+}

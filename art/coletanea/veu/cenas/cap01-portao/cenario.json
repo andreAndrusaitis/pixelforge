@@ -1,0 +1,11 @@
+{
+  "_sobre": "Rua da avó em Goiânia, fim de tarde de janeiro depois do temporal (cap 01).",
+  "name": "rua-da-avo",
+  "size": [1280, 360],
+  "camadas": [
+    { "arte": "ceu",    "parallax": 0.1 },
+    { "arte": "lajes",  "parallax": 0.35, "pos": [0, 120], "repetir": "x" },
+    { "arte": "rua" },
+    { "arte": "portao", "frente": true }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "name": "chegada_academia",
+  "duracao": 12,
+  "abafar": 0.35,
+  "trilha": {
+    "musica": "tema_aventura.json",
+    "volume": 0.45,
+    "fade_in": 1.0,
+    "fade_out": 2.0
+  },
+  "eventos": [
+    {
+      "t": 1.0,
+      "efeito": "passo",
+      "volume": 0.7,
+      "pan": -0.4
+    },
+    {
+      "t": 1.4,
+      "efeito": "passo",
+      "volume": 0.7,
+      "pan": -0.3,
+      "variar": 0.1,
+      "semente": 1
+    },
+    {
+      "t": 1.8,
+      "efeito": "passo",
+      "volume": 0.7,
+      "pan": -0.2,
+      "variar": 0.1,
+      "semente": 2
+    },
+    {
+      "t": 3.0,
+      "efeito": "porta",
+      "volume": 0.9
+    },
+    {
+      "t": 5.0,
+      "efeito": "sino",
+      "volume": 0.6,
+      "pan": 0.5
+    },
+    {
+      "t": 9.5,
+      "efeito": "magia",
+      "volume": 0.8
+    }
+  ],
+  "falas": [
+    {
+      "t": 6.0,
+      "arquivo": "../../out/som/fala_chegada.wav",
+      "volume": 1.0
+    }
+  ]
+}
